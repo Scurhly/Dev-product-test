@@ -29,23 +29,22 @@ app.post("/create-product", async (req, res) => {
     }
   
  
-    const PRODUCT_MAP = {
-      1: 3480326033,
-      5: 3480326507,
-      10: 3480326513,
-      50: 3480326517,
-      100: 3480327484,
-      1000: 3480327494,
-      2000: 3480327507,
-      5000: 3480327517,
-    };
-  
-    const productId = PRODUCT_MAP[amount];
-    if (!productId) {
-      return res.status(400).json({ error: "Unsupported amount" });
-    }
-  
-    res.json({ productId });
-  });
-  
-
+    const r = await fetch(
+        "https://apis.roblox.com/developer-products/v1/universes/9353795104/developer-products",
+        {
+          method: "POST",
+          headers: {
+            "x-api-key": process.env.ROBLOX_API_KEY,
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            name: `Donation ${price}`,
+            priceInRobux: price
+          })
+        }
+      );
+    
+      res.json(await r.json());
+    });
+    
+    app.listen(3000);
