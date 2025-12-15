@@ -18,7 +18,7 @@ app.post("/test", (req, res) => {
 
 const PORT = 3000;
 app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
+  console.log(`Server running on http://dev-product-test-production-604d.up.railway.app:${PORT}`);
 });
 
 app.post("/create-product", async (req, res) => {
@@ -48,3 +48,4 @@ app.post("/create-product", async (req, res) => {
     res.json({ productId });
   });
   
+
