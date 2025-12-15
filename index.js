@@ -1,3 +1,4 @@
+
 import express from "express";
 import fetch from "node-fetch";
 import dotenv from "dotenv";
@@ -18,7 +19,7 @@ app.post("/test", (req, res) => {
 
 const PORT = 3000;
 app.listen(PORT, () => {
-  console.log(`Server running on https://dev-product-test-production.up.railway.app:${PORT}`);
+  console.log(`Server running on http://dev-product-test-production-604d.up.railway.app:${PORT}`);
 });
 
 app.post("/create-product", async (req, res) => {
@@ -47,4 +48,3 @@ app.post("/create-product", async (req, res) => {
   
     res.json({ productId });
   });
-  
